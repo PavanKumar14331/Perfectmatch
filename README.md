@@ -95,6 +95,9 @@ Use the search box in hero section or filter bar to narrow down profiles by:
 2. Fill in your details and optional message
 3. Click "Send Interest" to submit
 4. Receive confirmation message
+   ## 🌐 Live Demo
+
+**[View Live Demo](https://pavankumar14331.github.io/Perfectmatch)**
 
 ## 🔧 Customization
 
@@ -203,7 +206,6 @@ Phone: +91 98765 43210
 - Interest management sidebar
 - Contact modal system
 - Fully responsive
-## 🌐 Live Demo
 
-**[View Live Demo](https://pavankumar14331.github.io/Perfectmatch)**
+
 
