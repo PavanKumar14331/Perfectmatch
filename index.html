@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfect Match - Find Your Life Partner</title>
+  <link rel="stylesheet" href="style.css">
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Navigation -->
+  <nav class="navbar">
+   <div class="nav-container">
+    <div class="logo">
+     <h1>💑 Perfect Match</h1>
+    </div>
+    <ul class="nav-links">
+     <li><a href="#home">Home</a></li>
+     <li><a href="#profiles">Profiles</a></li>
+     <li><a href="#about">About</a></li>
+     <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="interests-icon" id="interestsIcon">
+     💝 <span class="interests-count" id="interestsCount">0</span>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section class="hero" id="home">
+   <div class="hero-content">
+    <h1 class="hero-title">Find Your Perfect Life Partner</h1>
+    <p class="hero-subtitle">Thousands of verified profiles waiting for you</p>
+    <div class="search-box"><select id="genderFilter" class="search-input"> <option value="all">All Genders</option> <option value="Male">Groom</option> <option value="Female">Bride</option> </select> <select id="ageFilter" class="search-input"> <option value="all">All Ages</option> <option value="20-25">20-25 years</option> <option value="26-30">26-30 years</option> <option value="31-35">31-35 years</option> <option value="36-40">36-40 years</option> </select> <button class="search-button" id="searchButton">Search Profiles</button>
+    </div>
+   </div>
+  </section><!-- Stats Section -->
+  <section class="stats-section">
+   <div class="stats-container">
+    <div class="stat-item">
+     <div class="stat-number">
+      10,000+
+     </div>
+     <div class="stat-label">
+      Active Profiles
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number">
+      5,000+
+     </div>
+     <div class="stat-label">
+      Success Stories
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number">
+      100+
+     </div>
+     <div class="stat-label">
+      Daily Matches
+     </div>
+    </div>
+    <div class="stat-item">
+     <div class="stat-number">
+      24/7
+     </div>
+     <div class="stat-label">
+      Support Available
+     </div>
+    </div>
+   </div>
+  </section><!-- Profiles Section -->
+  <section class="profiles-section" id="profiles">
+   <h2 class="section-title">Featured Profiles</h2>
+   <div class="filter-bar"><select id="professionFilter" class="filter-select"> <option value="all">All Professions</option> <option value="Engineer">Engineer</option> <option value="Doctor">Doctor</option> <option value="Teacher">Teacher</option> <option value="Business">Business</option> <option value="IT Professional">IT Professional</option> </select> <select id="locationFilter" class="filter-select"> <option value="all">All Locations</option> <option value="Hyderabad">Hyderabad</option> <option value="Bangalore">Bangalore</option> <option value="Mumbai">Mumbai</option> <option value="Delhi">Delhi</option> <option value="Chennai">Chennai</option> </select> <button class="filter-button" id="applyFilters">Apply Filters</button>
+   </div>
+   <div class="profiles-grid" id="profilesGrid"><!-- Profiles will be dynamically loaded here -->
+   </div>
+  </section><!-- Interests Sidebar -->
+  <div class="interests-sidebar" id="interestsSidebar">
+   <div class="sidebar-header">
+    <h2>Your Interests</h2><button class="close-sidebar" id="closeSidebar">✕</button>
+   </div>
+   <div class="interests-list" id="interestsList"><!-- Interest items will be displayed here -->
+   </div>
+   <div class="sidebar-footer"><button class="contact-all-button" id="contactAllButton">Contact All</button>
+   </div>
+  </div><!-- Contact Modal -->
+  <div class="contact-modal" id="contactModal">
+   <div class="modal-content"><button class="close-modal" id="closeModal">✕</button>
+    <h2>Send Interest Request</h2>
+    <div class="profile-preview" id="profilePreview"><!-- Selected profile preview -->
+    </div>
+    <form class="contact-form" id="contactForm">
+     <div class="form-group"><label for="yourName">Your Full Name</label> <input type="text" id="yourName" required>
+     </div>
+     <div class="form-group"><label for="yourEmail">Your Email</label> <input type="email" id="yourEmail" required>
+     </div>
+     <div class="form-group"><label for="yourPhone">Your Phone Number</label> <input type="tel" id="yourPhone" required>
+     </div>
+     <div class="form-group"><label for="message">Message (Optional)</label> <textarea id="message" rows="4" placeholder="Introduce yourself..."></textarea>
+     </div><button type="submit" class="submit-button">Send Interest</button>
+    </form>
+    <div class="success-message" id="successMessage">
+     <div class="success-icon">
+      ✓
+     </div>
+     <h3>Interest Sent Successfully!</h3>
+     <p>The profile owner will be notified about your interest.</p><button class="continue-button" id="continueButton">Continue Browsing</button>
+    </div>
+   </div>
+  </div><!-- About Section -->
+  <section class="about-section" id="about">
+   <h2 class="section-title">How It Works</h2>
+   <div class="steps-container">
+    <div class="step-item">
+     <div class="step-icon">
+      📝
+     </div>
+     <h3>Create Profile</h3>
+     <p>Sign up and create your detailed profile with photos and preferences</p>
+    </div>
+    <div class="step-item">
+     <div class="step-icon">
+      🔍
+     </div>
+     <h3>Search Matches</h3>
+     <p>Browse through verified profiles matching your preferences</p>
+    </div>
+    <div class="step-item">
+     <div class="step-icon">
+      💬
+     </div>
+     <h3>Connect</h3>
+     <p>Send interest and start communicating with potential partners</p>
+    </div>
+    <div class="step-item">
+     <div class="step-icon">
+      💍
+     </div>
+     <h3>Find Love</h3>
+     <p>Meet your perfect match and start your journey together</p>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section class="contact-section" id="contact">
+   <h2 class="section-title">Get In Touch</h2>
+   <div class="contact-container">
+    <div class="contact-info">
+     <h3>Contact Information</h3>
+     <div class="info-item"><span class="info-icon">📧</span> <span>support@perfectmatch.com</span>
+     </div>
+     <div class="info-item"><span class="info-icon">📞</span> <span>+91xxxxxxxx</span>
+     </div>
+     <div class="info-item"><span class="info-icon">📍</span> <span>Hyderabad, Telangana, India</span>
+     </div>
+     <div class="info-item"><span class="info-icon">⏰</span> <span>24/7 Customer Support</span>
+     </div>
+    </div>
+    <form class="inquiry-form" id="inquiryForm">
+     <div class="form-group"><label for="inquiryName">Name</label> <input type="text" id="inquiryName" required>
+     </div>
+     <div class="form-group"><label for="inquiryEmail">Email</label> <input type="email" id="inquiryEmail" required>
+     </div>
+     <div class="form-group"><label for="inquiryMessage">Message</label> <textarea id="inquiryMessage" rows="5" required></textarea>
+     </div><button type="submit" class="submit-button">Send Message</button>
+    </form>
+   </div>
+  </section><!-- Footer -->
+  <footer class="footer">
+   <div class="footer-content">
+    <div class="footer-section">
+     <h3>About Perfect Match</h3>
+     <p>India's most trusted matrimony platform helping thousands find their perfect life partner.</p>
+    </div>
+    <div class="footer-section">
+     <h3>Quick Links</h3>
+     <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#profiles">Browse Profiles</a></li>
+      <li><a href="#about">How It Works</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+     </ul>
+    </div>
+    <div class="footer-section">
+     <h3>Legal</h3>
+     <ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms &amp; Conditions</a></li>
+      <li><a href="#">Refund Policy</a></li>
+      <li><a href="#">FAQ</a></li>
+     </ul>
+    </div>
+    <div class="footer-section">
+     <h3>Follow Us</h3>
+     <div class="social-links"><a href="#" class="social-link">📘</a> <a href="#" class="social-link">📸</a> <a href="#" class="social-link">🐦</a> <a href="#" class="social-link">💼</a>
+     </div>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p>© 2024 Perfect Match. All rights reserved.</p>
+   </div>
+  </footer>
+  <script src="script.js"></script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ba9c1d997263e1c',t:'MTc2Nzg1NDk5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
